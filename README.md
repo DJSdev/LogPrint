@@ -16,19 +16,19 @@ This will not override the print function on other imported modules.
 Basic module called `testfile1` will be imported into out main program:
 
 	print("1hello")
-		
+	
 	class Test():
 	    print("2hello")
 	    def func(self):
 	        print("3hello")
 	    print("4hello")
 
-This module doesn't import the new print statement, no logging will occur from print() usage inside this module.
+This module doesn't import the new print function, no logging will occur from print() usage inside this module.
 
 When we run Python, we will only see logging from the main module:
 
 	Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 22:22:05) [MSC v.1916 64 bit (AMD64)] 
-on win32
+	on win32
 	Type "help", "copyright", "credits" or "license" for more information.
 	>>> from log_print import print
 	>>> print("MAIN HELLO")
@@ -58,10 +58,10 @@ Now import the new print function:
 	        print("3hello")
 	    print("4hello")
 
-After importing new print function into testfile1
+After importing new print function into testfile1:
 
 	Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 22:22:05) [MSC v.1916 64 bit (AMD64)] 
-on win32
+	on win32
 	Type "help", "copyright", "credits" or "license" for more information.
 	>>> from log_print import print
 	>>> print("MAIN HELLO AGAIN")
