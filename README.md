@@ -1,2 +1,88 @@
 # LogPrint
 Logging the python print() function
+
+## Intro
+Just a basic script to log every print() function call to a file in the working directory of 
+the entry file.
+
+## Usage
+On each module simpy import the new print function.
+
+	from log_print import print 
+
+This will not override the print function on other imported modules.
+
+## Example
+Basic module called `testfile1` will be imported:
+	print("1hello")
+	
+	class Test():
+	    print("2hello")
+	    def func(self):
+	        print("3hello")
+	    print("4hello")
+
+Since this module didn't import the new print statement, no logging will occur from print usage inside this module
+
+Now import the new print function:
+	from log_print import print
+	
+
+	print("1hello")
+	
+	class Test():
+	    print("2hello")
+	    def func(self):
+	        print("3hello")
+	    print("4hello")
+
+
+	Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 22:22:05) [MSC v.1916 64 bit (AMD64)] 
+on win32
+	Type "help", "copyright", "credits" or "license" for more information.
+	>>> from log_print import print
+	>>> print("MAIN HELLO")
+	MAIN HELLO
+	>>> from new.testfile1 import Test
+	1hello
+	2hello
+	4hello
+	>>> Test().func()
+	3hello
+	>>>
+	
+
+Outputted to log file:
+	MAIN HELLO
+
+Only MAIN HELLO was in the log since we only imported print on the main program, not the 
+module.
+
+After importing new print function into testfile1
+
+	Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 22:22:05) [MSC v.1916 64 bit (AMD64)] 
+on win32
+	Type "help", "copyright", "credits" or "license" for more information.
+	>>> from log_print import print
+	>>> print("MAIN HELLO AGAIN")
+	MAIN HELLO AGAIN
+	>>> from new.testfile1 import Test
+	1hello
+	2hello
+	4hello
+	>>> Test().func()
+	3hello
+	>>>
+
+Outputted to log file:
+	MAIN HELLO AGAIN
+	
+	1hello
+	
+	2hello
+	
+	4hello
+	
+	3hello
+
+
