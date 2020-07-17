@@ -1,16 +1,16 @@
 # LogPrint
-Logging the python print() function
+Logging the python `print()` function
 
 ## Intro
 Just a basic script to log every print() function call to a file in the working directory of 
 the entry file.
 
 ## Usage
-On each module simpy import the new print function.
+On each module simply import the new print function.
 
 	from log_print import print 
 
-This will not override the print function on other imported modules.
+This only overrides the print function in the module importing the function. Other modules are unaffected and will not be logged if `print()` is called
 
 ## Example
 Basic module called `testfile1` will be imported into out main program:
